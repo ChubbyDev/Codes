@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Laptop Configurator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="menu-bar">
+        <ul>
+            <li><a href="about.html" class="about">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <header>
+        <div class="header-content">
+            <img src="https://m.media-amazon.com/images/S/al-eu-726f4d26-7fdb/2857538f-c4a8-4cbb-be7f-351559038add._CR300%2C0%2C2400%2C1200_.jpg"
+                alt="Header Image">
+            <h1>Gaming Laptop Configurator</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <label for="cpu">
+            <img src="https://www.pcstudio.in/wp-content/uploads/2021/04/processor-caticon.svg" alt="CPU Icon">
+            Select CPU:
+        </label>
+        <select id="cpu" required>
+            <option value="" disabled selected>Select CPU</option>
+            <option value="i3">13th Gen Intel Core i3</option>
+            <option value="i5">13th Gen Intel Core i5</option>
+            <option value="i7">13th Gen Intel Core i7</option>
+            <option value="i9">13th Gen Intel Core i9</option>
+        </select>
+
+        <label for="graphicsCard">
+            <img src="https://www.pcstudio.in/wp-content/uploads/2021/04/graphiccard-caticon.svg" alt="Graphics Card Icon">
+            Select Graphics Card:
+        </label>
+        <select id="graphicsCard" required>
+            <option value="" disabled selected>Select Graphics Card</option>
+            <option value="rtx4050">NVIDIA RTX 4050</option>
+            <option value="rtx4060">NVIDIA RTX 4060</option>
+            <option value="rtx4070">NVIDIA RTX 4070</option>
+            <option value="rtx4080">NVIDIA RTX 4080</option>
+        </select>
+
+        <label for="ram">
+            <img src="https://www.pcstudio.in/wp-content/uploads/2021/04/ram-caticon.svg" alt="RAM Icon">
+            Select RAM:
+        </label>
+        <select id="ram" required>
+            <option value="" disabled selected>Select RAM</option>
+            <option value="8gb">8GB</option>
+            <option value="16gb">16GB</option>
+            <option value="32gb">32GB</option>
+            <option value="64gb">64GB</option>
+        </select>
+
+        <label for="storage">
+            <img src="https://www.pcstudio.in/wp-content/uploads/2021/04/storage-caticon.svg" alt="Storage Icon">
+            Select Storage:
+        </label>
+        <select id="storage" required>
+            <option value="" disabled selected>Select Storage</option>
+            <option value="128gb">128GB SSD</option>
+            <option value="256gb">256GB SSD</option>
+            <option value="512gb">512GB SSD</option>
+            <option value="1tb">1TB SSD</option>
+        </select>
+
+        <button
+           
+            id="myButton" class="float-left submit-button hover-fill" disabled>FIND</button>
+
+        <ul id="laptopsList">
+        </ul>
+    </div>
+
+    <footer>
+        <div class="note">
+            <p>&copy; 2023 Gaming Laptop Configurator</p>
+        </div>
+        <div class="footer-content">
+            <div class="text">
+                <p>Designed with passion by Akshat Mangle (C009), Ranveer Singh Thakur (C030), and Aryaveer Jadeja
+                    (C025) from B Division.</p>
+                <p>This website, built with HTML, CSS, JavaScript, and jQuery, is your personal laptop configurator.</p>
+                <p>Connect with us on social media using the links below. If you have any questions or need
+                    assistance, feel free to reach out to anyone of us.</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/akshat_mangle_">
+                    <span>Akshat Mangle</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                        alt="Instagram">
+                </a>
+                <a href="https://www.instagram.com/ranveer_st33">
+                    <span>Ranveer Singh Thakur</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                        alt="Instagram">
+                </a>
+                <a href="https://www.instagram.com/aryaveer__jadeja13">
+                    <span>Aryaveer Jadeja</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                        alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to enable or disable the button based on option selections
+        function updateButtonState() {
+            const cpu = document.getElementById("cpu").value;
+            const graphicsCard = document.getElementById("graphicsCard").value;
+            const ram = document.getElementById("ram").value;
+            const storage = document.getElementById("storage").value;
+            const button = document.getElementById("myButton");
+            
+
+            // Enable the button only if all options are selected
+            if (cpu && graphicsCard && ram && storage) {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+        }
+
+        function displayRecommendedLaptops() {
+            // Get user selections
+            const cpu = document.getElementById("cpu").value;
+            const graphicsCard = document.getElementById("graphicsCard").value;
+            const ram = document.getElementById("ram").value;
+            const storage = document.getElementById("storage").value;
+            const laptopsList = document.getElementById("laptopsList");
+
+            // Clear previous recommendations
+            laptopsList.innerHTML = "";
+            if (cpu && graphicsCard && ram && storage) {
+                if (cpu === "i9" && graphicsCard === "rtx4080" && ram === "64gb" && storage === "1tb") {
+                    const recommendation = "Alienware m18 Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i9" && graphicsCard === "rtx4070" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "ASUS - ROG Zephyrus M16 16";
+                    displayRecommendation(laptopsList, recommendation, "recommendation")
+                } else if (cpu === "i9" && graphicsCard === "rtx4070" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "ASUS - ROG STRIX G16";
+                    displayRecommendation(laptopsList, recommendation, "recommendation")
+                } else if (cpu === "i9" && graphicsCard === "rtx4070" && ram === "32gb" && storage === "1tb") {
+                    const recommendation = "XMG PRO 15 Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation")
+                } else if (cpu === "i9" && graphicsCard === "rtx4070" && ram === "32gb" && storage === "2tb") {
+                    const recommendation = "MSI Cyborg Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation")
+
+                    //i7
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i7" && graphicsCard === "rtx4070" && ram === "16gb" && storage === "512gb") {
+                    const recommendation = "Lenovo Legion Pro 5";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i7" && graphicsCard === "rtx4060" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "Dell G5 15 Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i7" && graphicsCard === "rtx4060" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "AORUS RTX 4060 Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i7" && graphicsCard === "rtx4060" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "MSI Katana 15 B13VFK-1264US Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i7" && graphicsCard === "rtx4060" && ram === "32gb" && storage === "1tb") {
+                    const recommendation = "MSI Bravo 17 C7VFK-039US Gaming Laptop ";
+                    //i5
+                } else if (cpu === "i5" && graphicsCard === "rtx4050" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "Lenovo - Legion Slim 7i";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i5" && graphicsCard === "rtx4060" && ram === "8gb" && storage === "512gb") {
+                    const recommendation = "Acer Nitro 5 Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i5" && graphicsCard === "rtx4050" && ram === "16gb" && storage === "512gb") {
+                    const recommendation = "MSI Thin GF63 15.6";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i5" && graphicsCard === "rtx4050" && ram === "16gb" && storage === "512gb") {
+                    const recommendation = "Lenovo LOQ Gaming Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i5" && graphicsCard === "rtx4050" && ram === "16gb" && storage === "512gb") {
+                    const recommendation = "Gigabyte G5 (2023) Gaming Laptop";
+                    //i3
+                } else if (cpu === "i3" && graphicsCard === "rtx4050" && ram === "16gb" && storage === "1tb") {
+                    const recommendation = "Laptop 3 - Everyday Use Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else if (cpu === "i3" && graphicsCard === "gtx1650" && ram === "8gb" && storage === "256gb") {
+                    const recommendation = "HP Pavilion 15.6-inch Laptop";
+                    displayRecommendation(laptopsList, recommendation, "recommendation");
+                } else {
+                    // No specific recommendation
+                    const recommendation = "No specific recommendation for these selections.";
+                    displayRecommendation(laptopsList, recommendation, "no-recommendation");
+                }
+            } else {
+                // Not all fields are filled
+                const recommendation = "Please select all options to get recommendations.";
+                displayRecommendation(laptopsList, recommendation, "no-recommendation");
+            }
+        }
+
+        function displayRecommendation(laptopsList, recommendation, styleClass) {
+            const listItem = document.createElement("li");
+            listItem.textContent = recommendation;
+            listItem.classList.add(styleClass); // Add the specified style class
+            laptopsList.appendChild(listItem);
+        }
+
+
+        // Modify the button's click event to call the function
+        document.getElementById("myButton").addEventListener("click", displayRecommendedLaptops);
+
+        // Add event listeners to the select elements to check for changes
+        document.getElementById("cpu").addEventListener("change", updateButtonState);
+        document.getElementById("graphicsCard").addEventListener("change", updateButtonState);
+        document.getElementById("ram").addEventListener("change", updateButtonState);
+        document.getElementById("storage").addEventListener("change", updateButtonState);
+
+        // Initialize button state
+        updateButtonState();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+.menu-bar {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-bar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-bar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.sign-in-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: Consolas;
+    text-decoration: none;
+    text-align: right;
+}
+
+/*main body*/
+body {
+    font-family: Consolas;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+}
+
+.header-content {
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+}
+
+header img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+header img:hover {
+    transform: scale(1.05);
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 165, 0, 0.5);
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.header-content:hover .header-overlay {
+    background: rgba(255, 165, 0, 0.7);
+    animation: wavy 2s infinite;
+}
+
+@keyframes wavy {
+    0% {
+        transform: translateX(-25%);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateX(25%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-25%);
+        opacity: 0.5;
+    }
+}
+
+header h1 {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: white;
+    font-family: Consolas;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.7), -2px -2px 4px rgba(0, 0, 255, 0.7);
+}
+
+.container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: Consolas;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    background-color: #ff0000;
+    transition: background-color 0.3s ease;
+}
+
+button:enabled:hover {
+    background-color: rgb(71, 240, 71);
+    transition: background-color 0.3s ease;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: Consolas;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.hover-fill {
+    transition: background-color 0.3s ease;
+}
+
+.hover-fill:hover {
+    background-color: #ff0000;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.note p {
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.note {
+    flex: 1;
+    text-align: left;
+}
+
+.text {
+    flex: 1;
+    text-align: left;
+    font-family: Consolas;
+    font-size: 15px;
+}
+
+.social-links {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    text-align: right;
+}
+
+.social-links img {
+    width: 50px;
+    margin-left: auto;
+}
+
+.recommendation {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.recommendation-title {
+    font-weight: bold;
+}
+
+.no-recommendation {
+    color: red;
+}
